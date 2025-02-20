@@ -8,29 +8,28 @@ Codigo usado para representar en PrefCAD los gráficos de manillas y bisagras su
    using PrefRotoDesing;
 ```  
 - En "OnDrawHandle" y "OnDrawHinges" instanciar las clase DrawRotoHandle y DrawRotoHinge respectivamente:
-```bash[c#]
+```csharp
 public void OnDrawHandle(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hueco, Interop.PrefCAD.ModelImage imagen, out bool drawn)
 {
-	drawn = false;
-	string hardwareSupplier = hueco.Elemento.Opciones.Item("HardwareSupplier");
-	if (hardwareSupplier == "ROTO NX" || hardwareSupplier == "ROTO NX ALU")
-	{
-		DrawRotoHandle drHa = new DrawRotoHandle();
-		drHa.RotoHandle(model, hueco, imagen);
-	}
-	drawn = true;
+    drawn = false;
+    string hardwareSupplier = hueco.Elemento.Opciones.Item("HardwareSupplier");
+    if (hardwareSupplier == "ROTO NX" || hardwareSupplier == "ROTO NX ALU")
+    {
+        DrawRotoHandle drHa = new DrawRotoHandle();
+        drHa.RotoHandle(model, hueco, imagen);
+    }
+    drawn = true;
 }
-
 public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hueco, Interop.PrefCAD.ModelImage imagen, out bool drawn)
 {
-	drawn = false;
-        string hardwareSupplier = hueco.Elemento.Opciones.Item("HardwareSupplier");
-	if (hardwareSupplier == "ROTO NX" || hardwareSupplier == "ROTO NX ALU")
-        {
-		DrawRotoHinge drHi = new DrawRotoHinge();
-		drHi.RotoHinge(model, hueco, imagen);
-	}
-	drawn = true;
+    drawn = false;
+    string hardwareSupplier = hueco.Elemento.Opciones.Item("HardwareSupplier");
+    if (hardwareSupplier == "ROTO NX" || hardwareSupplier == "ROTO NX ALU")
+    {
+	DrawRotoHinge drHi = new DrawRotoHinge();
+	drHi.RotoHinge(model, hueco, imagen);
+    }
+    drawn = true;
 }
 ```  
 - y compilar en la versión de PrefSuite vigente.

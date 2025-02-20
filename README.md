@@ -34,4 +34,4 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 }
 ```  
 - y compilar en la versión de PrefSuite vigente.
-- Los graficos de manillas y bisagras deben de estar previemnte aplicados como simbolos de usuario en PrefWise.
+- Los gráficos de manillas y bisagras deben de estar previamente aplicados como símbolos de usuario en PrefWise.

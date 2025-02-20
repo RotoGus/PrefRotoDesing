@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrefRotoDesing", "PrefRotoDesing.csproj", "{AE9BAF72-B83A-4549-B876-254597DA0835}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE9BAF72-B83A-4549-B876-254597DA0835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9BAF72-B83A-4549-B876-254597DA0835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9BAF72-B83A-4549-B876-254597DA0835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9BAF72-B83A-4549-B876-254597DA0835}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46B5A3EC-02AB-4A92-A0C2-CE89C9B5038F}
+	EndGlobalSection
+EndGlobal

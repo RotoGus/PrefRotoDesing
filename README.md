@@ -5,9 +5,8 @@ Sirve para representar en PrefCAD los graficos de manillas y bisagras suministra
 
 ### Prerequisitos
 
-- Sobre la .NET PrefUserCSharp del cliente 
-- En el ModelModule.cs
-```bash[npm]
-   npm create esjs@latest
+- Sobre la .NET PrefUserCSharp del cliente, en el modulo ModelModule.cs, aplicar la libreria: 
+```bash[c#]
+   using PrefRotoDesing;
 ```  
   

@@ -1,5 +1,5 @@
 # PrefRotoDesign
-Código usado para representar en PrefCAD los gráficos de manillas y bisagras suministradas por Roto Frank, S.A. 
+Código c# usado para representar en PrefCAD los gráficos de manillas y bisagras suministradas por Roto Frank, S.A. 
 
 ## Instalación
 

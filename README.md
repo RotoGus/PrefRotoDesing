@@ -3,11 +3,11 @@ Codigo usado para representar en PrefCAD los graficos de manillas y bisagras sum
 
 ## Instalación
 
-- Sobre la PrefUserCSharp del cliente (.NET), en el modulo ModelModule.cs, aplicar la llamada a la libreria: 
+- Sobre la PrefUserCSharp del cliente (.NET), en el modulo ModelModule.cs, aplicar la llamada a la libreria, previamnte agregada como referencia: 
 ```bash[c#]
    using PrefRotoDesing;
 ```  
-- En "onDrawHandle" y "OnDrawHinges" instanciar las clase DrawRotoHandle y DrawRotoHinge respectivamente:
+- En "OnDrawHandle" y "OnDrawHinges" instanciar las clase DrawRotoHandle y DrawRotoHinge respectivamente:
 ```bash[c#]
 public void OnDrawHandle(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hueco, Interop.PrefCAD.ModelImage imagen, out bool drawn)
 {
@@ -33,3 +33,5 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 	drawn = true;
 }
 ```  
+- y compilar en la versión de PrefSuite vigente.
+- Los graficos de manillas y bisagras deben de estar previemnte aplicados como simbolos de usuario en PrefWise.

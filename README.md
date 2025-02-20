@@ -4,7 +4,7 @@ Código usado para representar en PrefCAD los gráficos de manillas y bisagras s
 ## Instalación
 
 - Sobre la PrefUserCSharp del cliente (.NET), en el modulo ModelModule.cs, aplicar la llamada a la librería, previamente agregada como referencia: 
-```bash[c#]
+```csharp
    using PrefRotoDesing;
 ```  
 - En "OnDrawHandle" y "OnDrawHinges" instanciar las clase DrawRotoHandle y DrawRotoHinge respectivamente:

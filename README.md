@@ -51,13 +51,6 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 | `<PENDIENTE>`                 | Manilla Rotosamba Llave                |
 
 
-| Comando          | Descripción                                      |
-|-----------------|--------------------------------------------------|
-| `git clone`     | Clona un repositorio                            |
-| `cd <carpeta>`  | Cambia de directorio                           |
-| `npm install`   | Instala las dependencias necesarias             |
-| `npm start`     | Inicia la aplicación                            |
-| `npm run build` | Genera una versión lista para producción        |
 
   
 - Handles para BALCONERA:

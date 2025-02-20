@@ -41,15 +41,22 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 
 ## Simbolos de Usuario
 
-- Handles:
+- Handles para VENTANA:
+| Símbolo                       | Descripción                            |
+|-------------------------------|----------------------------------------|
+| `Option_HANDLE_Rotoline`      | Manilla Rotoline                       |
+| `Option_HANDLE_Rotoline Llave`| Manilla Rotoline Llave                 |
+| `Option_HANDLE_Rotosamba`     | Manilla Rotosamba                      |
+| `<PENDIENTE>`                 | Manilla Rotosamba Llave                |
 
-| Símbolo          | Descripción                                            |
+  
+- Handles para BALCONERA:
+| Símbolo                | Descripción                                      |
 |------------------------|--------------------------------------------------|
 | `Option_HANDLE_MB`     | Manilla + Manilla con bombillo                   |
-| `cd <carpeta>`  | Cambia de directorio                           |
-| `npm install`   | Instala las dependencias necesarias             |
-| `npm start`     | Inicia la aplicación                            |
-| `npm run build` | Genera una versión lista para producción        |
+| `Option_HANDLE_MB_S`   | Manilla interior bombillo                        |
+
+
 
 
 ## Contribuciones

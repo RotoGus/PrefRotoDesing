@@ -39,26 +39,27 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 - y compilar en la versión de PrefSuite vigente.
 - Los gráficos de manillas y bisagras deben de estar previamente aplicados como símbolos de usuario en PrefWise.
 
-## Simbolos de Usuario
+## Simbolos de Usuario usados en código
 
 - Handles para VENTANA:
+  Controlados por la OPCION: ***RO_MANILLA VENTANA***
   
 | Símbolo                       | Descripción                            |
 |-------------------------------|----------------------------------------|
-| `Option_HANDLE_Rotoline`      | Manilla Rotoline                       |
-| `Option_HANDLE_Rotoline Llave`| Manilla Rotoline Llave                 |
-| `Option_HANDLE_Rotosamba`     | Manilla Rotosamba                      |
-| `<PENDIENTE>`                 | Manilla Rotosamba Llave                |
-
-
-
+| `Option_HANDLE_Rotoline`      | Manilla Rotoline y Rotoline secustik   |
+| `Option_HANDLE_Rotoline Llave`| Manilla Rotoline llave                 |
+| `Option_HANDLE_Swing`         | Manilla Rotoswing y Rotoswing secustik |
+| `<PENDIENTE>`                 | Manilla Rotoswing llave                |
+| `Option_HANDLE_Rotosamba`     | Manilla Rotosamba y Rotosamba secustik |
+| `<PENDIENTE>`                 | Manilla Rotosamba llave                |
   
 - Handles para BALCONERA:
+  Controlados por la OPCION: ***RO_MANILLA BALCONERA***
   
 | Símbolo                | Descripción                                      |
 |------------------------|--------------------------------------------------|
-| `Option_HANDLE_MB`     | Manilla + Manilla con bombillo                   |
-| `Option_HANDLE_MB_S`   | Manilla interior bombillo                        |
+| `Option_HANDLE_MB`     | Manilla+Manilla y Manilla+Manilla plana (con bombillo)    |
+| `Option_HANDLE_MB_S`   | Solo manilla interior (exterior con bombillo)   |
 
 
 

@@ -3,7 +3,7 @@ Codigo usado para representar en PrefCAD los gráficos de manillas y bisagras su
 
 ## Instalación
 
-- Sobre la PrefUserCSharp del cliente (.NET), en el modulo ModelModule.cs, aplicar la llamada a la libreria, previamnte agregada como referencia: 
+- Sobre la PrefUserCSharp del cliente (.NET), en el modulo ModelModule.cs, aplicar la llamada a la librería, previamente agregada como referencia: 
 ```bash[c#]
    using PrefRotoDesing;
 ```  

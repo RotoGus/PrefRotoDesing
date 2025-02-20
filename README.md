@@ -1,4 +1,7 @@
 # PrefRotoDesign
+![screenshot](Roto_G1.jpg "Roto Frank SPN")
+
+## Descripción
 Código c# usado para representar en PrefCAD los gráficos de manillas y bisagras suministradas por Roto Frank, S.A. 
 
 ## Instalación

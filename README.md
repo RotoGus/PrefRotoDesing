@@ -42,6 +42,7 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 ## Simbolos de Usuario
 
 - Handles para VENTANA:
+  
 | Símbolo                       | Descripción                            |
 |-------------------------------|----------------------------------------|
 | `Option_HANDLE_Rotoline`      | Manilla Rotoline                       |
@@ -60,6 +61,7 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 
   
 - Handles para BALCONERA:
+  
 | Símbolo                | Descripción                                      |
 |------------------------|--------------------------------------------------|
 | `Option_HANDLE_MB`     | Manilla + Manilla con bombillo                   |

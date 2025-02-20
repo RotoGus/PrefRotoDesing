@@ -34,3 +34,7 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 ```  
 - y compilar en la versión de PrefSuite vigente.
 - Los gráficos de manillas y bisagras deben de estar previamente aplicados como símbolos de usuario en PrefWise.
+
+## Contacto
+
+Para comunicarse con el equipo de Ingenieria de datos de Roto Frank, S.A. puede hacerlo mediante el correo electrónico <gustavo.martinez@roto-frank.com>

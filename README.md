@@ -42,6 +42,7 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 ## Simbolos de Usuario usados en código
 
 - Handles para VENTANA:
+  
   Controlados por la OPCION: ***RO_MANILLA VENTANA***
   
 | Símbolo                       | Descripción                            |
@@ -54,12 +55,27 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 | `<PENDIENTE>`                 | Manilla Rotosamba llave                |
   
 - Handles para BALCONERA:
+  
   Controlados por la OPCION: ***RO_MANILLA BALCONERA***
   
-| Símbolo                | Descripción                                      |
-|------------------------|--------------------------------------------------|
-| `Option_HANDLE_MB`     | Manilla+Manilla y Manilla+Manilla plana (con bombillo)    |
-| `Option_HANDLE_MB_S`   | Solo manilla interior (exterior con bombillo)   |
+| Símbolo                  | Descripción                                      |
+|--------------------------|--------------------------------------------------|
+| `Option_HANDLE_MB`       | Manilla+Manilla y Manilla+Manilla plana (con bombillo)    |
+| `Option_HANDLE_Rotoline` | Solo manilla interior (sin bombillo)             |
+| `Option_HANDLE_MB_S`     | Solo manilla interior (para exterior bombillo)   |
+
+- Handles para PUERTA:
+  
+  Controlados por la OPCION: ***RO_MANILLA PUERTA***
+
+| Símbolo                  | Descripción                                      |
+|--------------------------|--------------------------------------------------|
+| `Option_HANDLE_MP_DR`    | Juego Manilla dos caras (Derecha)                |
+| `Option_HANDLE_MP_IZ`    | Juego MAnilla dos caras (Izquierda)              |
+| `Option_HANDLE_MP_T_DR`  | Manilla + Tirador (Derecha)                      |
+| `Option_HANDLE_MP_T_IZ`  | Manilla + Tirador (Izquierda)                    |
+| `Option_HANDLE_MP_P`     | Manilla + Placa ciega (placa exterior)           |
+
 
 
 

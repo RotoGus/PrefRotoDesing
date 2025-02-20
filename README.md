@@ -39,6 +39,19 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 - y compilar en la versión de PrefSuite vigente.
 - Los gráficos de manillas y bisagras deben de estar previamente aplicados como símbolos de usuario en PrefWise.
 
+## Simbolos de Usuario
+
+- Handles:
+
+| Símbolo          | Descripción                                            |
+|------------------------|--------------------------------------------------|
+| `Option_HANDLE_MB`     | Manilla + Manilla con bombillo                   |
+| `cd <carpeta>`  | Cambia de directorio                           |
+| `npm install`   | Instala las dependencias necesarias             |
+| `npm start`     | Inicia la aplicación                            |
+| `npm run build` | Genera una versión lista para producción        |
+
+
 ## Contribuciones
 
 Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear. Cualquier contribución que hagas será **agradecida**.

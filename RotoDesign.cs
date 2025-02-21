@@ -19,20 +19,34 @@ namespace PrefRotoDesing
             {
                 string biS = "";
                 string biI = "";
+                string biE = "";
                 double distanciaV = 55;
 
-                if (apertura.Equals("V_DR") )
+                if (apertura.Equals("V_DR") || apertura.Equals("B_DR_I"))
                 {
                     PointHandle.x = Frame.right;
                     biS = "Option_HINGE_Superior_DR";
                     biI = "Option_HINGE_Inferior_DR";
                 }
-                else if (apertura.Equals("V_IZ"))
+                else if (apertura.Equals("V_IZ") || apertura.Equals("B_IZ_I"))
                 {
                     PointHandle.x = Frame.left;
                     biS = "Option_HINGE_Superior_IZ";
                     biI = "Option_HINGE_Inferior_IZ";
                 }
+
+                if (apertura.Equals("B_DR_E"))
+                {
+                    PointHandle.x = Frame.right;
+                    biE = "Option_HINGE_PB10";
+                }
+                if (apertura.Equals("B_IZ_E"))
+                {
+                    PointHandle.x = Frame.left;
+                    biE = "Option_HINGE_PB10";
+                }
+
+
 
                 if (vista == false)
                 {
@@ -44,6 +58,28 @@ namespace PrefRotoDesing
                     PointHandle.y = Frame.bottom + distanciaV;
                     imagen.DrawSymbol(biI, PointHandle);
                 }
+                else
+                {
+                    if (apertura.Equals("B_DR_E") || apertura.Equals("B_IZ_E"))
+                    {
+                        // Bisagra superior
+                        PointHandle.y = Frame.top - distanciaV;
+                        imagen.DrawSymbol(biE, PointHandle);
+
+                        // B. Inferior
+                        PointHandle.y = Frame.bottom + distanciaV;
+                        imagen.DrawSymbol(biE, PointHandle);
+
+                        //B. Media
+                        double mitad = Frame.height / 2;
+
+                        PointHandle.y = Frame.bottom + mitad;
+                        imagen.DrawSymbol(biE, PointHandle);
+                    }
+                }
+
+
+
             }
             //2. ABATIBLE
             if (apertura.Equals("AB"))

@@ -52,11 +52,11 @@ namespace PrefRotoDesing
             {
                 string biE = "Option_HINGE_PB10";
 
-                if (apertura.Equals("B_DR_E"))
+                if (apertura.Equals("B_IZ_E"))
                 {
                     PointHandle.x = Frame.left ;
                 }
-                if (apertura.Equals("B_IZ_E"))
+                if (apertura.Equals("B_DR_E"))
                 {
                     PointHandle.x = Frame.right;
                 }
@@ -130,9 +130,11 @@ namespace PrefRotoDesing
                 {
                     bisagra = "Option_HINGE_" + tipobisagra;
                 }
-                else if (tipobisagra == "SCR")
+                else if (tipobisagra == "SCR" & aperturaE == false & designo == "Normal")
                 {
-                   if (apert== "DCHA")
+                    distancia = 55;
+
+                    if (apert== "DCHA")
                     {
                         bisagra = "Option_HINGE_Superior_DR";
                         bInf = "Option_HINGE_Inferior_DR";
@@ -156,10 +158,12 @@ namespace PrefRotoDesing
                 {
                     if (tipobisagra == "SCR")
                     {
-                        bisagra = bInf;
+                        imagen.DrawSymbol(bInf, PointHandle);
                     }
-                    imagen.DrawSymbol(bisagra, PointHandle);
-
+                    else
+                    {
+                        imagen.DrawSymbol(bisagra, PointHandle);
+                    }
                 }
                 // Bisagras INTERMEDIAS
                 if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("3 Bisagras") || (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("4 Bisagras LC")))
@@ -173,7 +177,7 @@ namespace PrefRotoDesing
                         imagen.DrawSymbol(bisagra, PointHandle);
                     }
                 }
-                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").ToString().Equals("4 Bisagras LC"))
+                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("4 Bisagras LC"))
                 {
                     double distanciaC = 410;
 
@@ -203,9 +207,6 @@ namespace PrefRotoDesing
                         imagen.DrawSymbol(bisagra, PointHandle);
                     }
                 }
-
-
-
             }
             //4. ABATIBLE
             if (apertura.Equals("AB"))
@@ -319,7 +320,7 @@ namespace PrefRotoDesing
                     imagen.DrawSymbol(bisagra, PointHandle);
                 }
                 // Bisagras INTERMEDIAS
-                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").ToString().Equals("3 Bisagras") || (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").ToString().Equals("4 Bisagras LC")))
+                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("3 Bisagras") || (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("4 Bisagras LC")))
                 {
                     double mitad = Frame.height / 2;
 
@@ -331,7 +332,7 @@ namespace PrefRotoDesing
                     }
                 }
 
-                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").ToString().Equals("4 Bisagras LC"))
+                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("4 Bisagras LC"))
                 {
                     double distanciaC = 410;
 
@@ -343,7 +344,7 @@ namespace PrefRotoDesing
                     }
                 }
 
-                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").ToString().Equals("4 Bisagras LP"))
+                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("4 Bisagras LP"))
                 {
                     double tercio = Frame.height / 3;
 
@@ -477,7 +478,7 @@ namespace PrefRotoDesing
                     }
                 }
 
-                if (apertura.Equals("B_DR_I") || apertura.Equals("B_IZ_E"))
+                if (apertura.Equals("B_DR_I") || apertura.Equals("B_DR_E"))
                 {
                     rectManeta.right = frame.left + 50;
                     rectManeta.top = frame.bottom + am;
@@ -486,7 +487,7 @@ namespace PrefRotoDesing
                     PointHandle.x = rectManeta.right;
                     PointHandle.y = rectManeta.top;
                 }
-                else if (apertura.Equals("B_IZ_I") || apertura.Equals("B_DR_E"))
+                else if (apertura.Equals("B_IZ_I") || apertura.Equals("B_IZ_E"))
                 {
                     rectManeta.left = frame.right - 50;
                     rectManeta.top = frame.bottom + am;
@@ -496,24 +497,28 @@ namespace PrefRotoDesing
                     PointHandle.y = rectManeta.top;
                 }
             }
-            //3. PUERTA 
-            else if (apertura.Equals("P_DR_I") || apertura.Equals("P_IZ_I") || apertura.Equals("P_DR_E") || apertura.Equals("P_IZ_E"))
+
+
+
+            //3. PUERTA Y SECUNDARIA
+            else if (apertura.Equals("P_DR_I") || apertura.Equals("P_IZ_I") || apertura.Equals("P_DR_E") || apertura.Equals("P_IZ_E") ||
+                apertura.Equals("S_DR_I") || apertura.Equals("S_IZ_I") || apertura.Equals("S_DR_E") || apertura.Equals("S_IZ_E"))
             {
                 string valorManilla = hueco.Elemento.Opciones.Item("RO_MANILLA PUERTA");
                 if (valorManilla == "Juego Manilla dos caras" || valorManilla == "Manilla + Manilla plana p.")
                 {
-                    if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E"))
+                    if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E") || apertura.Equals("S_DR_I") || apertura.Equals("S_DR_E"))
                     {
                         manilla = "Option_HANDLE_MP_IZ";
                     }
-                    else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E"))
+                    else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E") || apertura.Equals("S_IZ_I") || apertura.Equals("S_IZ_E"))
                     {
                         manilla = "Option_HANDLE_MP_DR";
                     }
                 }
                 if (valorManilla == "Manilla + Tirador")
                 {
-                    if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E"))
+                    if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E") || apertura.Equals("S_DR_I") || apertura.Equals("S_DR_E"))
                     {
                         if (vista == false)
                         {
@@ -524,7 +529,7 @@ namespace PrefRotoDesing
                             manilla = "Option_HANDLE_MP_T_IZ";
                         }
                     }
-                    else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E"))
+                    else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E") || apertura.Equals("S_IZ_I") || apertura.Equals("S_IZ_E"))
                     {
                         if (vista == false)
                         {
@@ -538,7 +543,7 @@ namespace PrefRotoDesing
                 }
                 if (valorManilla == "Manilla + Placa ciega")
                 {
-                    if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E"))
+                    if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E") || apertura.Equals("S_DR_I") || apertura.Equals("S_DR_E"))
                     {
                         if (vista == false)
                         {
@@ -549,7 +554,7 @@ namespace PrefRotoDesing
                             manilla = "Option_HANDLE_MP_P";
                         }
                     }
-                    else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E"))
+                    else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E") || apertura.Equals("S_IZ_I") || apertura.Equals("S_IZ_E"))
                     {
                         if (vista == false)
                         {
@@ -561,7 +566,7 @@ namespace PrefRotoDesing
                         }
                     }
                 }
-                if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E"))
+                if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E") || apertura.Equals("S_DR_I") || apertura.Equals("S_DR_E"))
                 {
                     rectManeta.right = frame.left + 30;
                     rectManeta.top = frame.bottom + am;
@@ -570,7 +575,7 @@ namespace PrefRotoDesing
                     PointHandle.x = rectManeta.right;
                     PointHandle.y = rectManeta.top;
                 }
-                else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E"))
+                else if (apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E") || apertura.Equals("S_IZ_I") || apertura.Equals("S_IZ_E"))
                 {
                     rectManeta.left = frame.right - 30;
                     rectManeta.top = frame.bottom + am;
@@ -751,7 +756,6 @@ namespace PrefRotoDesing
 
             imagen.DrawSymbol(manilla, PointHandle, rot);
 
-            //
         }
     }
     public static class RotoTools
@@ -810,10 +814,10 @@ namespace PrefRotoDesing
                     {
                         if (tipo == "Easy Mix_Si")
                         {
-                            apert = "B_DR_E";
+                            apert = "B_IZ_E";
                             if (sec != "Balconera")
                             {
-                                apert = "S_DR_E";
+                                apert = "S_IZ_E";
                             }
                         }
                     }
@@ -824,10 +828,10 @@ namespace PrefRotoDesing
                     {
                         if (tipo == "Easy Mix_Si")
                         {
-                            apert = "B_IZ_E";
+                            apert = "B_DR_E";
                             if (sec != "Balconera")
                             {
-                                apert = "S_IZ_E";
+                                apert = "S_DR_E";
                             }
                         }
                     }

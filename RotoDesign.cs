@@ -305,7 +305,7 @@ namespace PrefRotoDesing
                     rot = 90;
 
                     //'Manilla superior:
-                    PointHandle.x = hueco.FFH / 2; 
+                    PointHandle.x = hueco.FFB / 2; 
                     PointHandle.y = rectManeta.top - 30;
                 }
             }

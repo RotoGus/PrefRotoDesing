@@ -19,7 +19,7 @@ namespace PrefRotoDesing
             {
                 string biS = "";
                 string biI = "";
-                string biE = "";
+               
                 double distanciaV = 55;
 
                 if (apertura.Equals("V_DR") || apertura.Equals("B_DR_I"))
@@ -35,19 +35,6 @@ namespace PrefRotoDesing
                     biI = "Option_HINGE_Inferior_IZ";
                 }
 
-                if (apertura.Equals("B_DR_E"))
-                {
-                    PointHandle.x = Frame.right;
-                    biE = "Option_HINGE_PB10";
-                }
-                if (apertura.Equals("B_IZ_E"))
-                {
-                    PointHandle.x = Frame.left;
-                    biE = "Option_HINGE_PB10";
-                }
-
-
-
                 if (vista == false)
                 {
                     //'Bisagra Superior
@@ -58,29 +45,39 @@ namespace PrefRotoDesing
                     PointHandle.y = Frame.bottom + distanciaV;
                     imagen.DrawSymbol(biI, PointHandle);
                 }
-                else
+            }
+
+            if (apertura.Equals("B_DR_E") || apertura.Equals("B_IZ_E"))
+            {
+                string biE = "Option_HINGE_PB10";
+
+                if (apertura.Equals("B_DR_E"))
                 {
-                    if (apertura.Equals("B_DR_E") || apertura.Equals("B_IZ_E"))
-                    {
-                        // Bisagra superior
-                        PointHandle.y = Frame.top - distanciaV;
-                        imagen.DrawSymbol(biE, PointHandle);
+                    PointHandle.x = Frame.right;
+                }
+                if (apertura.Equals("B_IZ_E"))
+                {
+                    PointHandle.x = Frame.left;
+                }
+                if (!vista == false)
+                {
+                    // Bisagra superior
+                    PointHandle.y = Frame.top - distanciaV;
+                    imagen.DrawSymbol(biE, PointHandle);
 
-                        // B. Inferior
-                        PointHandle.y = Frame.bottom + distanciaV;
-                        imagen.DrawSymbol(biE, PointHandle);
+                    // B. Inferior
+                    PointHandle.y = Frame.bottom + distanciaV;
+                    imagen.DrawSymbol(biE, PointHandle);
 
-                        //B. Media
-                        double mitad = Frame.height / 2;
+                    //B. Media
+                    double mitad = Frame.height / 2;
 
-                        PointHandle.y = Frame.bottom + mitad;
-                        imagen.DrawSymbol(biE, PointHandle);
-                    }
+                    PointHandle.y = Frame.bottom + mitad;
+                    imagen.DrawSymbol(biE, PointHandle);
+
                 }
 
 
-
-            }
             //2. ABATIBLE
             if (apertura.Equals("AB"))
             {

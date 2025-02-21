@@ -17,7 +17,7 @@ namespace PrefRotoDesing
             double distanciaV = 55;
             string designo = hueco.Elemento.Opciones.Item("RO_NX_TIPO HERRAJE");
 
-            //1. VENTANA
+            //1. VENTANA Y BALCONERA
             if (apertura.Equals("V_DR") || apertura.Equals("V_IZ") || apertura.Equals("B_DR_I") || apertura.Equals("B_IZ_I"))
             {
                 string biS = "";
@@ -47,7 +47,7 @@ namespace PrefRotoDesing
                     imagen.DrawSymbol(biI, PointHandle);
                 }
             }
-
+            //2. BALCONERA EXT.
             if (apertura.Equals("B_DR_E") || apertura.Equals("B_IZ_E"))
             {
                 string biE = "Option_HINGE_PB10";
@@ -78,8 +78,136 @@ namespace PrefRotoDesing
 
                 }
             }
+            //3. SECUNDARIA
+            if (apertura.Equals("S_DR_I") || apertura.Equals("S_IZ_I") || apertura.Equals("S_DR_E") || apertura.Equals("S_IZ_E"))
+            {
+                string tipobisagra = hueco.Elemento.Opciones.Item("RO_PU_BISAGRA");
+                string bisagra = "";
+                string bInf = "";
+                string cuerpo;
+                string vte;
+                string apert = "";
+                double distancia = 200;
+                bool aperturaE = false;
 
-            //2. ABATIBLE
+                if (apertura.Equals("S_DR_I") || apertura.Equals("S_DR_E"))
+                {
+                    apert = "DCHA"; 
+                    PointHandle.x = Frame.right;
+                    if (apertura.Equals("S_DR_I"))
+                    {
+                        aperturaE = false;
+                    }
+                    else
+                    {
+                        aperturaE = true;
+                    }
+                }
+                if (apertura.Equals("S_IZ_I") || apertura.Equals("S_IZ_E"))
+                {
+                    apert = "IZDA";
+                    PointHandle.x = Frame.left;
+                    if (apertura.Equals("S_IZ_I"))
+                    {
+                        aperturaE = false;
+                    }
+                    else
+                    {
+                        aperturaE = true;
+                    }
+                }
+                if (tipobisagra == "PS23" || tipobisagra == "150P")
+                {
+                    bisagra = "Option_HINGE_" + tipobisagra + "_" + apert;
+                }
+                else if (tipobisagra == "SOLID B")
+                {
+                    cuerpo = hueco.Elemento.Opciones.Item("RO_PU_SOLID_B_TIPO");
+                    vte = cuerpo.Substring(0, 2);
+                    bisagra = "Option_HINGE_" + tipobisagra + "_" + vte;
+                }
+                else if (tipobisagra == "PB10")
+                {
+                    bisagra = "Option_HINGE_" + tipobisagra;
+                }
+                else if (tipobisagra == "SCR")
+                {
+                   if (apert== "DCHA")
+                    {
+                        bisagra = "Option_HINGE_Superior_DR";
+                        bInf = "Option_HINGE_Inferior_DR";
+                    }
+                   else
+                    {
+                        bisagra = "Option_HINGE_Superior_IZ";
+                        bInf = "Option_HINGE_Inferior_IZ";
+                    }
+                }
+
+                // Bisagra Superior
+                PointHandle.y = Frame.top - distancia;
+                if (RotoTools.MuestraBisagra(aperturaE, vista))
+                {
+                    imagen.DrawSymbol(bisagra, PointHandle);
+                }
+                // Bisagra Inferior
+                PointHandle.y = Frame.bottom + distancia;
+                if (RotoTools.MuestraBisagra(aperturaE, vista))
+                {
+                    if (tipobisagra == "SCR")
+                    {
+                        bisagra = bInf;
+                    }
+                    imagen.DrawSymbol(bisagra, PointHandle);
+
+                }
+                // Bisagras INTERMEDIAS
+                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("3 Bisagras") || (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("4 Bisagras LC")))
+                {
+                    double mitad = Frame.height / 2;
+
+                    //'Bisagra Central
+                    PointHandle.y = Frame.bottom + mitad;
+                    if (RotoTools.MuestraBisagra(aperturaE, vista))
+                    {
+                        imagen.DrawSymbol(bisagra, PointHandle);
+                    }
+                }
+                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").ToString().Equals("4 Bisagras LC"))
+                {
+                    double distanciaC = 410;
+
+                    //'4º Bisagra Longitud Constante
+                    PointHandle.y = Frame.top - distanciaC;
+                    if (RotoTools.MuestraBisagra(aperturaE, vista))
+                    {
+                        imagen.DrawSymbol(bisagra, PointHandle);
+                    }
+                }
+
+                if (hueco.Elemento.Opciones.Item("RO_PU_NUM_BISAGRAS").Equals("4 Bisagras LP"))
+                {
+                    double tercio = Frame.height / 3;
+
+                    //'3ª Bisagra Longitud Promedio
+                    PointHandle.y = Frame.bottom + tercio;
+                    if (RotoTools.MuestraBisagra(aperturaE, vista))
+                    {
+                        imagen.DrawSymbol(bisagra, PointHandle);
+                    }
+
+                    //'4º Bisagra Longitud Promedio
+                    PointHandle.y = Frame.top - tercio;
+                    if (RotoTools.MuestraBisagra(aperturaE, vista))
+                    {
+                        imagen.DrawSymbol(bisagra, PointHandle);
+                    }
+                }
+
+
+
+            }
+            //4. ABATIBLE
             if (apertura.Equals("AB"))
             {
                 PointHandle.x = Frame.bottom + 50;
@@ -115,7 +243,7 @@ namespace PrefRotoDesing
                     }
                 }
             }
-            //3. PUERTA
+            //5. PUERTA
             if (apertura.Equals("P_DR_I") || apertura.Equals("P_DR_E") || apertura.Equals("P_IZ_I") || apertura.Equals("P_IZ_E"))
             {
                 string tipobisagra = "";
@@ -634,8 +762,9 @@ namespace PrefRotoDesing
             {
                 string apert = "";
                 string tipo = hueco.Elemento.Opciones.Item("RO_NX_EASY MIX");
+                string sec = hueco.Elemento.Opciones.Item("RO_SEC_TIPO BALCONERA");
 
-                //1. VENTANA Y BALCONERA
+                //1. VENTANA, BALCONERA Y PUERTA SECUNDARIA
                 if ((hueco.Apertura - TipoApertura.taActiva - TipoApertura.taPracticableDerecha - TipoApertura.taOscilobatienteInferior == 0) ||
                     (hueco.Apertura - TipoApertura.taPracticableDerecha - TipoApertura.taOscilobatienteInferior == 0) ||
                     (hueco.Apertura - TipoApertura.taActiva - TipoApertura.taPracticableDerecha == 0) ||
@@ -649,6 +778,10 @@ namespace PrefRotoDesing
                     if (tipo == "Easy Mix_Si")
                     {
                         apert = "B_DR_I";
+                        if (sec != "Balconera")
+                        {
+                            apert = "S_DR_I";
+                        }
                     }
                 }
                 if ((hueco.Apertura - TipoApertura.taActiva - TipoApertura.taPracticableIzquierda - TipoApertura.taOscilobatienteInferior == 0) ||
@@ -664,6 +797,10 @@ namespace PrefRotoDesing
                         if (tipo == "Easy Mix_Si")
                         {
                             apert = "B_IZ_I";
+                            if (sec != "Balconera")
+                            {
+                                apert = "S_IZ_I";
+                            }
                         }
                     }
                 if ((hueco.Apertura - TipoApertura.taActiva - TipoApertura.taPracticableDerecha - TipoApertura.taExterior == 0) ||
@@ -674,6 +811,10 @@ namespace PrefRotoDesing
                         if (tipo == "Easy Mix_Si")
                         {
                             apert = "B_DR_E";
+                            if (sec != "Balconera")
+                            {
+                                apert = "S_DR_E";
+                            }
                         }
                     }
                 if ((hueco.Apertura - TipoApertura.taActiva - TipoApertura.taPracticableIzquierda - TipoApertura.taExterior == 0) ||
@@ -684,6 +825,10 @@ namespace PrefRotoDesing
                         if (tipo == "Easy Mix_Si")
                         {
                             apert = "B_IZ_E";
+                            if (sec != "Balconera")
+                            {
+                                apert = "S_IZ_E";
+                            }
                         }
                     }
                 //2. ABATIBLE

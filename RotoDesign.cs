@@ -14,13 +14,14 @@ namespace PrefRotoDesing
             Rectangulo Frame = hueco.Elemento.Barra.Eje.Marco;
             Vertice PointHandle = new Vertice();
 
+            double distanciaV = 55;
+            string designo = hueco.Elemento.Opciones.Item("RO_NX_TIPO HERRAJE");
+
             //1. VENTANA
             if (apertura.Equals("V_DR") || apertura.Equals("V_IZ") || apertura.Equals("B_DR_I") || apertura.Equals("B_IZ_I"))
             {
                 string biS = "";
                 string biI = "";
-               
-                double distanciaV = 55;
 
                 if (apertura.Equals("V_DR") || apertura.Equals("B_DR_I"))
                 {
@@ -35,7 +36,7 @@ namespace PrefRotoDesing
                     biI = "Option_HINGE_Inferior_IZ";
                 }
 
-                if (vista == false)
+                if (vista == false & designo=="Normal")
                 {
                     //'Bisagra Superior
                     PointHandle.y = Frame.top - distanciaV;
@@ -50,7 +51,6 @@ namespace PrefRotoDesing
             if (apertura.Equals("B_DR_E") || apertura.Equals("B_IZ_E"))
             {
                 string biE = "Option_HINGE_PB10";
-                double distanciaV = 55;
 
                 if (apertura.Equals("B_DR_E"))
                 {
@@ -60,7 +60,7 @@ namespace PrefRotoDesing
                 {
                     PointHandle.x = Frame.right;
                 }
-                if (!vista == false)
+                if (!vista == false & designo=="Normal")
                 {
                     // Bisagra superior
                     PointHandle.y = Frame.top - distanciaV;
@@ -84,7 +84,7 @@ namespace PrefRotoDesing
             {
                 PointHandle.x = Frame.bottom + 50;
                 string bA = "Option_HINGE_Abatible";
-                double distanciaV = 100;
+                distanciaV = 100;
                 double tercia = hueco.FFH / 3;
 
 
@@ -303,10 +303,13 @@ namespace PrefRotoDesing
                 {
                     rectManeta.top = frame.top;
                     rot = 90;
+                    Rectangulo Frame = hueco.Elemento.Barra.Eje.Marco;
 
                     //'Manilla superior:
-                    PointHandle.x = hueco.FFH / 2; 
+                    double media = hueco.FFH / 2; // Ojo que FFH esta aplicando la dimension de ancho
+                    PointHandle.x = Frame.left + media + 20;
                     PointHandle.y = rectManeta.top - 30;
+
                 }
             }
             //2. BALCONERA

@@ -50,14 +50,15 @@ namespace PrefRotoDesing
             if (apertura.Equals("B_DR_E") || apertura.Equals("B_IZ_E"))
             {
                 string biE = "Option_HINGE_PB10";
+                double distanciaV = 55;
 
                 if (apertura.Equals("B_DR_E"))
                 {
-                    PointHandle.x = Frame.right;
+                    PointHandle.x = Frame.left ;
                 }
                 if (apertura.Equals("B_IZ_E"))
                 {
-                    PointHandle.x = Frame.left;
+                    PointHandle.x = Frame.right;
                 }
                 if (!vista == false)
                 {
@@ -76,7 +77,7 @@ namespace PrefRotoDesing
                     imagen.DrawSymbol(biE, PointHandle);
 
                 }
-
+            }
 
             //2. ABATIBLE
             if (apertura.Equals("AB"))
@@ -304,7 +305,7 @@ namespace PrefRotoDesing
                     rot = 90;
 
                     //'Manilla superior:
-                    PointHandle.x = frame.right / 2;
+                    PointHandle.x = hueco.FFH / 2; 
                     PointHandle.y = rectManeta.top - 30;
                 }
             }

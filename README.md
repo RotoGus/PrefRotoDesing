@@ -6,7 +6,7 @@ Código C# usado para representar en PrefCAD los gráficos de manillas y bisagra
 
 ## Instalación
 
-- Compila el proyecto PrefRotoDesing.dll
+- Clona y compila localmente el proyecto PrefRotoDesing.dll
 - Sobre la PrefUserCSharp del cliente (.NET), en el modulo ModelModule.cs, aplica la llamada a la librería, previamente agregada como referencia: 
 ```csharp
    using PrefRotoDesing;

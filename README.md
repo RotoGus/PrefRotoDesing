@@ -175,6 +175,8 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 | `Option_HINGE_ATB120_IZDA`  | ATB120 (izquierda)                | 350    | 200   |
 
 
+> [!IMPORTANT]
+> Las imágenes suministradas, aunque algunas estén en formato .png, son compatibles para la carga en PrefWise.
 
 
 ## Contribuciones

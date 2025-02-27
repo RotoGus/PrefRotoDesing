@@ -40,6 +40,10 @@ public void OnDrawHinges(Interop.PrefCAD.Modelo model, Interop.PrefCAD.Hueco hue
 - Los gráficos de manillas y bisagras deben de estar previamente aplicados como símbolos de usuario en PrefWise.
 
 ## Simbolos de Usuario usados en código
+
+> [!TIP]
+> Los gráficos a usar y enumerados a continuación están incluidos en el archivo ROTO_VIEW.zip
+
 ### HANDLES
 
 - <ins>Handles para VENTANA:</ins>
